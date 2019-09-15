@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-sm-4">
+      <h3>Users</h3>
+      <p>id: shubham.pandey128@gmail.com</p>
+      <p>password: 123456</p>
+      <p></p>
+      <p>id: text1@gmail.com</p>
+      <p>pass: 123456</p>
+      <p>id: text2@gmail.com</p>
+      <p>pass: 123456</p>
+      
+    </div>
+    <div class="col-sm-8">
+      
+      <h2 class="text-muted">Enter your credentials !!</h2>
+      <div class="well" *ngIf="invalid"><h2 class="text-danger" >id or Password not matched</h2></div>
+      <form #f="ngForm" (ngSubmit)="onFormSubmit(f)">
+        <div class="form-group">
+          <label> Email Id : </label>
+          <input type="email" name="email" class="form-control" ngModel required email>
+        </div>
+        <div class="form-group">
+            <label> Password : </label>
+            <input type="password" name="pass" class="form-control" required ngModel>
+        </div>
+        <button class="btn btn-success" [disabled]="!f.valid" type="submit">Login</button>
+        <button class="btn btn-danger" type="button">Cancel</button>
+         
+      </form>
+    </div>  
+  </div>

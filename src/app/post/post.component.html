@@ -1,0 +1,22 @@
+  
+
+<div class="card mb10">
+    <div class="card-header">
+     <button class="btn pl-5 pr-5" (click)="photoadded = (photoadded)? false : true" >Photos</button>
+  
+      </div>
+      <form #f="ngForm" (ngSubmit)="submit(f)" >
+        <div class="card-body">
+         <input type="text" ngModel name="msg" class="form-control" style="height: 100px;" placeholder="Write Something Here..">
+        </div>
+        <div *ngIf="photoadded">
+          <input type="text"   ngModel  name="img" class="form-control" placeholder="Give Image Link">
+       </div>
+        <div class="card-footer text-right">
+         <button class="btn btn-primary pl-5 pr-5">Post</button>
+        </div>
+    </form>
+    
+   
+    
+ </div>

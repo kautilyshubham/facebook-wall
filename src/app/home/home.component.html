@@ -1,0 +1,21 @@
+
+    <div class="col-sm-12 text-right mb-5">
+      <button class="btn btn-default" (click)="post()" >Compose post</button>
+    </div>
+    <div class="card mb-10 mt-10" *ngFor="let m of messages" style="margin: 20px 0px">
+      <div class="card-body">
+        <p class="card-title"><strong class="text-primary">{{m.name}} </strong> post  {{m.msg}}</p>
+        <img *ngIf="m.img" [src]="m.img" class="img-responsive " style="height: 200px;" >
+        <p *ngIf="m.likeCount" style="margin-bottom: 0px;"><i class="fa fa-heart" style="font-size:auto;color:red"></i>{{m.likeCount}} </p>
+      </div>
+        <ul class="comment-line">
+          <li *ngIf="!m.likeCount"><a  (click)="onLike(m.msgId)" ><i class="fa fa-thumbs-o-up" style="font-size:auto"></i> Like</a></li>
+          <li *ngIf="m.likeCount"><a style="color: navy" (click)="onLike(m.msgId)"><i class="fa fa-thumbs-up" style="font-size:auto;color: navy"></i> Like</a></li>
+          <li><a><i class="fa fa-comment" style="font-size:auto;color:#ddd"></i> Comment</a></li>
+        </ul>
+        <div class="commentbox">
+          <p class="comments" *ngFor="let comment of m.comments"><span class="text-primary">{{comment.name}}</span>  {{comment.comment}}</p>
+          <input type="text" class="form-control comment" [(ngModel)]="cmnt" #c (keyup.enter)="comment(m.msgId, c.value)" placeholder="comment here">
+        </div>
+      </div>
+      
